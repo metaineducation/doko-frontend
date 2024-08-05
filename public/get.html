@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<body>
+    <script>
+        function getCookie(name) { const nameEQ = name + "="; const ca = document.cookie.split(';'); for (let i = 0; i < ca.length; i++) { let c = ca[i]; while (c.charAt(0) == ' ') c = c.substring(1, c.length); if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length); } return null; }
+
+        try {
+            let userInfoTpl = {
+                userToken: "",
+                username: "",
+                expiringAt: 0,
+                nickname: "",
+                userId: 0
+            }
+            let userInfo = JSON.parse(localStorage.getItem('user'));
+            // let userInfo = JSON.parse(getCookie('user'));
+            window.parent.postMessage(
+                {
+                    action: "get",
+                    userInfo: userInfo ? { ...userInfo.userInfo } : { ...userInfoTpl },
+                },
+                "*"
+            );
+
+
+
+
+        } catch (error) {
+            console.log(error)
+        }
+    </script>
+</body>

@@ -1,0 +1,335 @@
+@import url('./normalize.css');
+
+@font-face {
+	font-family: 'DINPro-Medium';
+	src: url('DINPro-Medium.otf');
+}
+
+@font-face {
+	font-family: 'DINPro-Bold';
+	src: url('DINPro-Bold.otf');
+}
+
+@font-face {
+	font-family: 'DINPro-Regular';
+	src: url('DINPro-Regular.otf');
+}
+
+/* Css变量
+  定义：--xx: #fff;
+  使用：var(--xx);
+ */
+:root {
+	--clr1: #ffffff;
+	--clr2: #8c1aff;
+	--clr3: #051c33;
+	--clr4: #c0c6cc;
+}
+
+html {
+	overflow-y: scroll;
+}
+
+body {
+	font-family: 'DINPro-Medium';
+	font-size: 14px;
+	color: #fff;
+	background-color: #360a4a;
+}
+
+/*
+ * 常用属性简写
+ */
+.df {
+	display: flex;
+}
+
+.ac {
+	align-items: center;
+}
+
+.js {
+	justify-content: space-between;
+}
+
+.df-ac {
+	display: flex;
+	align-items: center;
+}
+
+.df-js {
+	display: flex;
+	justify-content: space-between;
+}
+
+.df-fc {
+	display: flex;
+	flex-direction: column;
+}
+
+.df-jc {
+	display: flex;
+	justify-content: center;
+}
+
+.df-ac-js {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.df-ac-jc {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/*
+ * 公共头部
+ */
+.g-head {
+	width: 1080px;
+	height: 120px;
+	margin: 0 auto;
+
+	.logo {
+		margin-right: 56px;
+	}
+
+	.nav {
+		flex-grow: 1;
+		font-size: 16px;
+
+		li {
+			margin-right: 56px;
+		}
+	}
+
+	.connect {
+		margin-right: 30px;
+	}
+
+	.join {}
+
+	.menu {
+		display: none;
+	}
+}
+
+/**
+ * 公共主体容器
+ */
+.g-main {}
+
+/**
+ * 公共底部
+ */
+.g-foot {
+	width: 1080px;
+	height: 210px;
+	margin: 0 auto;
+}
+
+/**
+ * 渐变按钮
+ */
+.btns {
+	display: flex;
+	align-items: center;
+	border-style: none;
+	border-radius: 25px;
+	color: #fff;
+}
+
+.btn1 {
+	padding: 2px;
+	background-image: linear-gradient(to left, #aa10f9, #fa9136);
+
+	.in {
+		display: block;
+		padding: 9px 26px;
+		border-radius: 20px;
+		background-color: rgba(0, 0, 0, .5);
+	}
+
+	&.rbbr {
+		/* right-bottom-border-rightangle，右下角直角 */
+		border-bottom-right-radius: 0;
+
+		.in {
+			border-bottom-right-radius: 0;
+		}
+	}
+}
+
+.btn2 {
+	padding: 14px 36px;
+	background-image: linear-gradient(to right, #aa10f9, #fa9136);
+
+	&.lgtl {
+		/* linear-gradient-to-left，向左渐变 */
+		background-image: linear-gradient(to left, #aa10f9, #fa9136);
+
+		.triangle {
+			position: relative;
+			width: 0;
+			height: 0;
+			margin-left: 10px;
+			border-left: 10px solid #fff;
+			border-top: 8px solid transparent;
+			border-bottom: 8px solid transparent;
+
+			&::before {
+				content: "";
+				position: absolute;
+				left: -11px;
+				top: -8px;
+				width: 1px;
+				height: 16px;
+				background-color: #fff;
+			}
+		}
+	}
+}
+
+/*
+ * 弹窗（占坑）
+ */
+.g-share {
+	position: relative;
+	height: 38px;
+	margin-left: 10px;
+	padding: 0 20px;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	border-radius: 8px;
+	background: rgba(0, 0, 0, 0.2);
+}
+
+/**
+ * 404
+ */
+.g-404 {
+	overflow: hidden;
+	background-color: #f5f7fa;
+}
+
+.g-4-41a {
+	flex-direction: column;
+	width: 1280px;
+	height: 610px;
+	margin: 30px auto;
+	border: 1px solid #f3f4f5;
+	border-radius: 8px;
+	background-color: #fff;
+}
+
+.g-404 a {
+	margin-top: 20px;
+	padding: 10px 20px;
+	border: 1px solid #e6e9eb;
+	border-radius: 9px;
+	line-height: 30px;
+	font-size: 18px;
+	color: #828d99;
+}
+
+.g-404 a:hover {
+	color: #8c1aff;
+}
+
+/*
+ * 响应式兼容移动设备
+ */
+@media screen and (max-width: 600px) {
+
+	.g-head,
+	.g-main,
+	.g-foot {
+		box-sizing: border-box;
+		width: 100%;
+		padding: 0 10px;
+		font-size: 12px;
+	}
+
+	.g-head {
+		height: 80px;
+		margin-top: 30px;
+
+		.logo {
+			flex: 1;
+			margin-right: 0;
+
+			img {
+				width: 105px;
+			}
+		}
+
+		.nav {
+			display: none;
+		}
+
+		.connect {
+			margin-right: 12px;
+		}
+
+		.join {
+			margin-right: 12px;
+
+			.btn1 {
+				padding: 1px;
+
+				.in {
+					padding: 6px 15px;
+				}
+			}
+		}
+
+		.menu {
+			box-sizing: border-box;
+			display: block;
+			width: 28px;
+			height: 28px;
+			padding: 1px;
+			border-radius: 50%;
+			background-image: linear-gradient(to left, #aa10f9, #fa9136);
+
+			.in {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 26px;
+				height: 26px;
+				border-radius: 50%;
+				background-color: rgba(0, 0, 0, .5);
+			}
+
+			.ico {
+				display: block;
+				width: 15px;
+				height: 1px;
+				background-color: #dccdd7;
+
+				&::before,
+				&::after {
+					content: '';
+					display: block;
+					width: 15px;
+					height: 1px;
+					background-color: #dccdd7;
+				}
+
+				&::before {
+					transform: translate(0, -5px);
+				}
+
+				&::after {
+					transform: translate(0, 4px);
+				}
+			}
+		}
+	}
+
+	.g-foot {
+		height: 100px;
+	}
+}

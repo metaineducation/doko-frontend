@@ -1,0 +1,11 @@
+version: "2"
+
+services:
+  doko_frontend:
+    image: nginx:1.20
+    container_name: doko_frontend
+    volumes:
+      - ./dist:/www/doko_frontend
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    network_mode: host
+    restart: on-failure:3
